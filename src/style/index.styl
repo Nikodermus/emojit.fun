@@ -1,0 +1,46 @@
+@require "./helpers/reset"
+@require "./helpers/mixins"
+@require "./helpers/miscelanous"
+@require "./library/fonts"
+// You can remove this on release
+// @require "./vendor/a11y"
+@require "./components/*"
+
+:root
+    scrollbar
+
+// General Elements Styling
+html
+    font-family: font-family-default, font-family-sans
+    max-width: 100vw
+    min-height: 100vh
+    overflow: hidden
+    scroll-behavior: smooth
+
+    body
+        font-family: @font-family
+        height: 100%
+        line-height: line-height-LG
+        max-width: @max-width
+        overflow-x: hidden
+        scroll-behavior: @scroll-behavior
+        width: 100vw
+
+        scrollbar
+        *
+            line-height: inherit
+            scroll-behavior: @scroll-behavior
+            color: inherit
+
+h1
+h2
+h3
+h4
+h5
+h6
+    font-family: font-family-title, font-family-sans
+
+#___gatsby
+#gatsby-focus-wrapper
+    width: 100%
+    height: 100%
