@@ -21,8 +21,8 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                name: 'deBakatas.com',
-                short_name: 'debakatas',
+                name: 'emojit.fun',
+                short_name: 'emojit',
                 start_url: '/',
                 background_color: '#eb2764',
                 theme_color: '#eb2764',

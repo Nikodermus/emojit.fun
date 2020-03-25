@@ -3,10 +3,10 @@ import SEO from '../components/SEO';
 
 const IndexPage = () => (
     <>
-        <span>Go Jefry</span>
+        <span>🌵</span>
         <SEO
-            description="Creamos videos, workshops, tutoriales y cursos que te permiten aprender a programar de una manera diferente y divertida."
-            title="deBakatas | Aprende a programar"
+            description="Adivina películas, libros y más, solo con 🌵💻👽"
+            title="emojit ¿podrás adivinar?"
         ></SEO>
     </>
 );
