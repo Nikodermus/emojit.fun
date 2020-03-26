@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import React, { useRef, useState, useEffect } from 'react';
 
 const BACKSPACE_KEY = 8;
 const LEFT_ARROW_KEY = 37;
 
-const LetterInput = ({ secret = 'Boca Junior' }) => {
+const LetterInput = ({ secret }) => {
     const inputs = useRef([]);
     const parsedSecret = secret.toLowerCase().trim();
 
@@ -47,7 +48,12 @@ const LetterInput = ({ secret = 'Boca Junior' }) => {
         const validationSecret = parsedSecret.replace(/\W/g, '');
 
         if (phrase.length === validationSecret.length) {
-            console.log('validaaaando', phrase === validationSecret);
+            console.log(
+                'validaaaando',
+                phrase === validationSecret,
+                phrase,
+                validationSecret
+            );
         }
     }, [parsedSecret, value]);
 
@@ -69,6 +75,10 @@ const LetterInput = ({ secret = 'Boca Junior' }) => {
             />
         )
     );
+};
+
+LetterInput.propTypes = {
+    secret: PropTypes.string.isRequired,
 };
 
 export default LetterInput;
