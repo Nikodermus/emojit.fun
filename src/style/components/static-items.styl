@@ -1,0 +1,41 @@
+.static-items
+    height: 0
+    width: 0
+    overflow: visible
+
+    &__item
+        position: fixed
+
+nav-margin = sizing-XL
+
+.main-logo
+    top: nav-margin
+    left: nav-margin
+    font-family: font-family-title
+
+    &__highlight
+        color: color-white
+
+.description
+    top: nav-margin
+    right: nav-margin
+    padding-top: sizing-MD
+
+.author
+    bottom: nav-margin
+    left: nav-margin
+
+.contribuiting
+    bottom: nav-margin
+    right: nav-margin
+
+.author
+.contribuiting
+    .bubble
+        &__emoji
+            background: color-black-transparent
+
+    &:hover
+        .bubble
+            &__emoji
+                transform: scale(1.1)
