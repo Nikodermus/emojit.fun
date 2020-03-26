@@ -2,60 +2,66 @@ import PropTypes from 'prop-types';
 import React, { useRef, useState, useEffect } from 'react';
 
 const BACKSPACE_KEY = 8;
-const LEFT_ARROW_KEY = 37;
 
-const LetterInput = ({ secret }) => {
+const LetterInput = ({ secret, validate }) => {
     const inputs = useRef([]);
-    const parsedSecret = secret.toLowerCase().trim();
-
     const [value, setValue] = useState([]);
+
+    const parsedSecret = secret.toLowerCase().trim();
 
     const onChange = ({ target }) => {
         const index = inputs.current.indexOf(target);
         target.value = target.value.replace(/\W/g, '');
 
-        const next = inputs.current[index + 1];
-        if (target.value && next) {
-            next.focus();
-        }
-
         setValue((prev) => {
             prev[index] = target.value.toLowerCase().trim();
             return [...prev];
         });
+
+        const next = inputs.current[index + 1];
+
+        if (target.value && next) {
+            next.focus();
+        }
     };
 
     const onKeyDown = ({ which, target }) => {
         const index = inputs.current.indexOf(target);
 
         const deleting = which === BACKSPACE_KEY;
-        const movingBackwards = which === LEFT_ARROW_KEY;
-        const emptyNotFirst = index && !target.value;
+        const previous = inputs.current[index - 1];
 
-        if ((deleting || movingBackwards) && emptyNotFirst) {
-            inputs.current[index - 1].focus();
+        if (deleting && previous && !target.value) {
+            previous.focus();
         }
     };
 
     useEffect(() => {
+        inputs.current.forEach((input) => {
+            input.value = '';
+        });
+
+        inputs.current = [];
         const emptyArray = [];
         emptyArray[parsedSecret.length - 1] = undefined;
         setValue(emptyArray);
     }, [parsedSecret.length, secret]);
 
     useEffect(() => {
-        const phrase = value.join('');
+        const phrase = value.filter(Boolean).join('');
         const validationSecret = parsedSecret.replace(/\W/g, '');
 
         if (phrase.length === validationSecret.length) {
-            console.log(
-                'validaaaando',
-                phrase === validationSecret,
-                phrase,
-                validationSecret
-            );
+            const isMatch = phrase === validationSecret;
+            validate(phrase === validationSecret);
+
+            if (isMatch) {
+                const emptyArray = [];
+                emptyArray[parsedSecret.length - 1] = undefined;
+                setValue(emptyArray);
+            }
         }
-    }, [parsedSecret, value]);
+    }, [parsedSecret, validate, value]);
 
     return parsedSecret.split('').map((e) =>
         e === ' ' ? (
@@ -63,8 +69,9 @@ const LetterInput = ({ secret }) => {
         ) : (
             <input
                 ref={(ref) => {
-                    if (inputs.current.indexOf(ref) === -1) {
+                    if (ref && inputs.current.indexOf(ref) === -1) {
                         inputs.current.push(ref);
+                        if (inputs.current.length === 1) ref.focus();
                     }
                 }}
                 onChange={onChange}

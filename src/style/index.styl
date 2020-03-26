@@ -28,7 +28,7 @@ html
         scroll-behavior: @scroll-behavior
         width: 100vw
         color: color-black
-        background: color-brand-yellow
+        background: transparent
         display: flex
         align-items: center
         justify-content: center
@@ -37,3 +37,12 @@ html
         *
             line-height: inherit
             scroll-behavior: @scroll-behavior
+
+    body
+        background: color-brand-yellow
+
+        &.success
+            background: color-brand-green
+
+        &.failure
+            background: color-brand-red
