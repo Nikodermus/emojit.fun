@@ -1,0 +1,21 @@
+.action-items
+    display: flex
+    position: fixed
+    bottom: sizing-4XL
+    left: 50%
+    transform: translateX(-50%)
+
+    &__btn
+        margin-inline-end: sizing-MD
+
+        &:last-of-type
+            margin-inline-end: 0
+
+        &:hover
+            .bubble__emoji
+                background: color-brand-red
+
+body.failure
+    .action-items__btn:hover
+        .bubble__emoji
+            background: color-brand-yellow

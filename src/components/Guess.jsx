@@ -32,6 +32,7 @@ Guess.propTypes = {
     clue: PropTypes.string.isRequired,
     emoji: PropTypes.string.isRequired,
     validate: PropTypes.func.isRequired,
+    celebrating: PropTypes.bool.isRequired,
 };
 
 export default Guess;

@@ -7,6 +7,7 @@ import data from '../data';
 import Guess from '../components/Guess';
 import SEO from '../components/SEO';
 import StaticItems from '../components/StaticItems';
+import ActionItems from '../components/ActionItems';
 
 const amount = data.length - 1;
 
@@ -14,6 +15,16 @@ const IndexPage = () => {
     const [item, setItem] = useState(randomInRange(0, amount));
     const [count, setCount] = useLocalState('counter', 0);
     const [celebrating, setCelebrating] = useState(false);
+
+    const next = () => {
+        setItem((current) => {
+            let newItem = randomInRange(0, amount);
+            while (newItem === current) {
+                newItem = randomInRange(0, amount);
+            }
+            return newItem;
+        });
+    };
 
     const validate = (bool) => {
         if (bool) {
@@ -24,13 +35,7 @@ const IndexPage = () => {
             setTimeout(() => {
                 setCelebrating(false);
                 document.body.classList.remove('success');
-                setItem((current) => {
-                    let newItem = randomInRange(0, amount);
-                    while (newItem === current) {
-                        newItem = randomInRange(0, amount);
-                    }
-                    return newItem;
-                });
+                next();
             }, 2000);
         } else {
             document.body.classList.add('failure');
@@ -46,13 +51,7 @@ const IndexPage = () => {
         setTimeout(() => {
             setCelebrating(false);
             document.body.classList.remove('failure');
-            setItem((current) => {
-                let newItem = randomInRange(0, amount);
-                while (newItem === current) {
-                    newItem = randomInRange(0, amount);
-                }
-                return newItem;
-            });
+            next();
         }, 2000);
     };
 
@@ -64,10 +63,8 @@ const IndexPage = () => {
                 {...data[item]}
                 celebrating={celebrating}
                 validate={validate}
-            ></Guess>
-            <button onClick={resolve} type="button">
-                resolve
-            </button>
+            />
+            <ActionItems resolve={resolve} next={next} />
             <SEO
                 description="Adivina películas, libros y más, solo con 🌵💻👽"
                 title="emojit ¿podrás adivinar?"
