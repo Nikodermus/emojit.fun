@@ -13,7 +13,7 @@ Agrega un elemento en `src/data.json`, está es la plantilla.
     answer: 'Elemento a adivinar',
     emoji: '🦇🦇🦇🦇',
     clue: 'Categoría',
-}
+},
 ```
 
 Cuando agregues un nuevo elemento, recuerda:

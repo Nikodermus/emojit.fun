@@ -8,6 +8,13 @@ const siteConfig = {
     },
     plugins: [
         {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: 'UA-62236338-3',
+                head: true,
+            },
+        },
+        {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 trackingIds: ['UA-62236338-3'],

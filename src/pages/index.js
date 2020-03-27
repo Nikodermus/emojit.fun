@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 import { randomInRange } from '../utils/random';
 import { useLocalState } from '../utils/hooks';
@@ -54,6 +55,14 @@ const IndexPage = () => {
             next();
         }, 2000);
     };
+
+    useEffect(() => {
+        trackCustomEvent({
+            category: 'website',
+            action: 'pageview',
+            label: 'initial view',
+        });
+    }, []);
 
     return (
         <>
