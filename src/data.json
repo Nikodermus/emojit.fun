@@ -20,6 +20,11 @@
         "clue": "Película"
     },
     {
+        "answer": "A caballo regalado no se le mira colmillo",
+        "emoji": "🐴🎁🚫👀😁",
+        "clue": "Refrán"
+    },
+    {
         "answer": "Aladdin",
         "emoji": "🧞‍♂️💞👸👳🏰",
         "clue": "Película"
@@ -65,6 +70,11 @@
         "clue": "Película"
     },
     {
+        "answer": "Aunque el mono se vista de seda mono se queda",
+        "emoji": "🐵👗👉👉🐵‍‍",
+        "clue": "Refrán"
+    },
+    {
         "answer": "Baby Driver",
         "emoji": "👶🚗💏🔫👂🏻",
         "clue": "Película"
@@ -108,6 +118,11 @@
         "answer": "Buffy la cazadora de vampiros",
         "emoji": "👩‍🔪🧛🧛‍♂️‍",
         "clue": "Show de TV"
+    },
+    {
+        "answer": "Camarón que se duerme se lo lleva la corriente",
+        "emoji": "🍤💤👉🌊",
+        "clue": "Refrán"
     },
     {
         "answer": "Capitana Marvel",
@@ -213,6 +228,17 @@
         "answer": "Las aventuras de Robin Hood",
         "emoji": "🏹🍎🎯",
         "clue": "Película"
+    },
+
+    {
+        "answer": "Más sabe el diablo por viejo que por diablo",
+        "emoji": "➕💡😈👉👴👈😈",
+        "clue": "Refrán"
+    },
+    {
+        "answer": "Más vale pajaro en mano que cien volando",
+        "emoji": "➕💵🐦🖐👈💯✈",
+        "clue": "Refrán"
     },
     {
         "answer": "Monterrey",
