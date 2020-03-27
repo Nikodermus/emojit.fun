@@ -6,7 +6,7 @@ Juega en [emojit.fun](www.emojit.fun)
 
 ## Contribuir
 
-Agrega un elemento en `src/data.js`, está es la plantilla.
+Agrega un elemento en `src/data.json`, está es la plantilla.
 
 ```js
 {
