@@ -7,17 +7,13 @@ const Guess = ({ clue, answer, emoji, validate, celebrating }) => (
         <h2 className="guess__emoji">{emoji}</h2>
         <div className="guess__input">
             {celebrating ? (
-                <h3>
-                    {answer
-                        .split('')
-                        .map((l) =>
-                            l === ' ' ? (
-                                <span className="letter-break"></span>
-                            ) : (
-                                <span className="letter-input">{l}</span>
-                            )
-                        )}
-                </h3>
+                answer.split(' ').map((word) => (
+                    <h3 className="letter-break">
+                        {word.split('').map((l) => (
+                            <span className="letter-input">{l}</span>
+                        ))}
+                    </h3>
+                ))
             ) : (
                 <LetterInput secret={answer} validate={validate}></LetterInput>
             )}

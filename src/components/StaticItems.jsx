@@ -14,7 +14,7 @@ const StaticItems = () => (
             Adivina películas, libros y más, solo con 🌵💻👽
         </span>
         <a
-            href="http://debakatas.com/"
+            href="https://www.linkedin.com/in/nikodermus/"
             target="_blank"
             rel="noopener noreferrer"
             className="static-items__item author"
@@ -25,7 +25,7 @@ const StaticItems = () => (
             </figure>
         </a>
         <a
-            href="http://debakatas.com/"
+            href="https://github.com/Nikodermus/emojit.fun"
             target="_blank"
             rel="noopener noreferrer"
             className="static-items__item contribuiting"

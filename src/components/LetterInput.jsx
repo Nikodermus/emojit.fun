@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useRef, useState, useEffect } from 'react';
+import { sanitizeWord } from '../utils/string';
 
 const BACKSPACE_KEY = 8;
 
@@ -7,7 +8,8 @@ const LetterInput = ({ secret, validate }) => {
     const inputs = useRef([]);
     const [value, setValue] = useState([]);
 
-    const parsedSecret = secret.toLowerCase().trim();
+    const parsedSecret = sanitizeWord(secret);
+    console.log(parsedSecret);
 
     const onChange = ({ target }) => {
         const index = inputs.current.indexOf(target);
@@ -63,25 +65,25 @@ const LetterInput = ({ secret, validate }) => {
         }
     }, [parsedSecret, validate, value]);
 
-    return parsedSecret.split('').map((e) =>
-        e === ' ' ? (
-            <span className="letter-break" />
-        ) : (
-            <input
-                ref={(ref) => {
-                    if (ref && inputs.current.indexOf(ref) === -1) {
-                        inputs.current.push(ref);
-                        if (inputs.current.length === 1) ref.focus();
-                    }
-                }}
-                onChange={onChange}
-                type="text"
-                className="letter-input"
-                maxLength="1"
-                onKeyDown={onKeyDown}
-            />
-        )
-    );
+    return parsedSecret.split(' ').map((word) => (
+        <div className="letter-break">
+            {word.split('').map(() => (
+                <input
+                    ref={(ref) => {
+                        if (ref && inputs.current.indexOf(ref) === -1) {
+                            inputs.current.push(ref);
+                            if (inputs.current.length === 1) ref.focus();
+                        }
+                    }}
+                    onChange={onChange}
+                    type="text"
+                    className="letter-input"
+                    maxLength="1"
+                    onKeyDown={onKeyDown}
+                />
+            ))}
+        </div>
+    ));
 };
 
 LetterInput.propTypes = {

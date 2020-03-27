@@ -67,7 +67,7 @@ const IndexPage = () => {
             <ActionItems resolve={resolve} next={next} />
             <SEO
                 description="Adivina películas, libros y más, solo con 🌵💻👽"
-                title="emojit ¿podrás adivinar?"
+                title="¿podrás adivinar? 🌵💻👽"
             ></SEO>
         </>
     );

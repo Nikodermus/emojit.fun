@@ -5,8 +5,15 @@
     left: 50%
     transform: translateX(-50%)
 
+    +below("sm")
+        bottom: sizing-XL
+        padding-left: sizing-MD
+
     &__btn
         margin-inline-end: sizing-MD
+
+        +below("sm")
+            margin-inline-end: sizing-XL
 
         &:last-of-type
             margin-inline-end: 0
