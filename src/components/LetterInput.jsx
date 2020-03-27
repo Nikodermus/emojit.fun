@@ -9,7 +9,6 @@ const LetterInput = ({ secret, validate }) => {
     const [value, setValue] = useState([]);
 
     const parsedSecret = sanitizeWord(secret);
-    console.log(parsedSecret);
 
     const onChange = ({ target }) => {
         const index = inputs.current.indexOf(target);

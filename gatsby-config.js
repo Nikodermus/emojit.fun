@@ -7,6 +7,21 @@ const siteConfig = {
         author: '@nikodermus',
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-google-gtag`,
+            options: {
+                trackingIds: ['UA-62236338-3'],
+                gtagConfig: {
+                    optimize_id: 'OPT_CONTAINER_ID',
+                    anonymize_ip: true,
+                    cookie_expires: 0,
+                },
+                pluginConfig: {
+                    head: false,
+                    respectDNT: true,
+                },
+            },
+        },
         'gatsby-plugin-react-helmet',
         {
             resolve: 'gatsby-source-filesystem',
@@ -36,12 +51,6 @@ const siteConfig = {
             },
         },
         'gatsby-plugin-offline',
-        {
-            resolve: `gatsby-plugin-google-analytics`,
-            options: {
-                trackingId: 'UA-62236338-3',
-            },
-        },
     ],
 };
 
