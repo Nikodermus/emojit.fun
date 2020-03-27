@@ -1,6 +1,6 @@
-const rupture = require('rupture');
+import rupture from 'rupture';
 
-module.exports = {
+const siteConfig = {
     siteMetadata: {
         title: 'emojit',
         description: 'Adivina películas, libros y más, solo con 🌵💻👽',
@@ -44,3 +44,5 @@ module.exports = {
         },
     ],
 };
+
+export default siteConfig;

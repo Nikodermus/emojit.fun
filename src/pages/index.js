@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { randomInRange } from '../utils/random';
 import { useLocalState } from '../utils/hooks';
 import Counter from '../components/Counter';
-import data from '../data';
 import Guess from '../components/Guess';
 import SEO from '../components/SEO';
 import StaticItems from '../components/StaticItems';
 import ActionItems from '../components/ActionItems';
+import data from '../data.json';
 
 const amount = data.length - 1;
 
