@@ -20,10 +20,7 @@ const data = {
 
 const IndexPage = () => {
     // Find the first language that exists in our data
-    const [language, setLanguage] = useLocalState(
-        'language',
-        navigator?.languages.find((l) => data[l]) || 'en'
-    );
+    const [language, setLanguage] = useLocalState('language', '');
 
     const langData = data[language] || data.en;
     const amount = langData.length - 1;
@@ -77,7 +74,16 @@ const IndexPage = () => {
             action: 'pageview',
             label: 'initial view',
         });
-    }, []);
+
+        if (!language) {
+            const local = localStorage.getItem('language');
+            setLanguage(
+                local
+                    ? JSON.parse(local)
+                    : navigator?.languages.find((l) => data[l]) || 'en'
+            );
+        }
+    }, [language, setLanguage]);
 
     // When we switch languages, get a new item for that language
     useEffect(() => {

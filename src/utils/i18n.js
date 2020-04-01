@@ -8,6 +8,6 @@ const data = {
     es,
 };
 
-const translate = (path, language) => get(data[language], path);
+const translate = (path, language) => get(data[language || 'en'], path);
 
 export default translate;
