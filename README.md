@@ -1,29 +1,33 @@
-# Emojit - ¿Podrás adivinar?
+# Emojit - Can you guess?
 
-Juega en [emojit.fun](www.emojit.fun)
+Play in [emojit.fun](www.emojit.fun)
 
-**I plan English support like in a week**
+![Pantallazo de emojit.fun](/docs/img/en.png)
 
-## Contribuir
+## Other Languages
 
-Agrega un elemento en `src/data.json`, está es la plantilla.
+[Español](/docs/README.es.md)
+
+## Contribute
+
+Add an item in `data/en.json`, here is the template.
 
 ```js
 {
-    answer: 'Elemento a adivinar',
+    answer: 'What to guess',
     emoji: '🦇🦇🦇🦇',
-    clue: 'Categoría',
+    clue: 'Category',
 },
 ```
 
-Cuando agregues un nuevo elemento, recuerda:
+When you add a new item, remember to:
 
--   [ ] [revisar la ortografía](https://www.corrector-castellano.com/)
--   [ ] El campo de emojis incluye únicamente emojis (No más de 7)
--   [ ] Agrega el elemento en su orden alfabetica, con respecto a `answer`
--   [ ] Busca por dúplicados (ej: Increibles, Los Increibles)
--   [ ] Trata de alinear el `clue`, con alguno actúal (ej; "Programa de televisión" seria mejor como los otros, "Show de TV")
+-   [ ] [Check grammar and spelling](https://www.reverso.net/spell-checker/english-spelling-grammar/)
+-   [ ] Emoji field, is only fill with emoji (No more than 7)
+-   [ ] Include the new item in alphabetical order with respect to `answer`
+-   [ ] Search for duplicates (ej: Incredibles, The Incredibles)
+-   [ ] Align your `clue`, with one already existing (ex; "Saying" can be as the rest, "Popular Saying")
 
-## Licencia
+## License
 
-MIT. Ya sabes que significa.
+MIT. You know what that means

@@ -1,0 +1,13 @@
+{
+    "seo": {
+        "description": "Adivina películas, libros y más, solo con",
+        "title": "¿Podrás adivinar?"
+    },
+    "buttons": {
+        "next": "Siguiente",
+        "solve": "Resolver"
+    },
+    "static": {
+        "contribute": "Contribuir"
+    }
+}
