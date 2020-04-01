@@ -1,18 +1,19 @@
 .counter
-    display: inline-flex
-    position: fixed
-    top: sizing-XL
-    left: 50%
-    transform: translateX(-50%)
-    font-size: font-size-2XL
+    align-items: center
     background: color-white
     border-radius: border-radius-MD
+    display: inline-flex
+    font-size: font-size-2XL
     height: sizing-4XL
-    width: @height
     justify-content: center
-    align-items: center
+    left: 50%
+    position: fixed
+    top: sizing-2XL
+    transform: translateX(-50%)
+    width: @height
 
     +below("sm")
-        right: sizing-XL
         left: unset
-        transform: translateX(0)
+        margin-right: sizing-3XL
+        right: sizing-2XL
+        transform: translateX(-100%)

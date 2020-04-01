@@ -3,16 +3,28 @@ import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 import { randomInRange } from '../utils/random';
 import { useLocalState } from '../utils/hooks';
+import ActionItems from '../components/ActionItems';
 import Counter from '../components/Counter';
+import en from '../../data/en';
+import es from '../../data/es';
 import Guess from '../components/Guess';
+import LanguageSwitch from '../components/LanguageSwitch';
 import SEO from '../components/SEO';
 import StaticItems from '../components/StaticItems';
-import ActionItems from '../components/ActionItems';
-import data from '../data.json';
+import translate from '../utils/i18n';
 
-const amount = data.length - 1;
+const data = {
+    en,
+    es,
+};
 
 const IndexPage = () => {
+    // Find the first language that exists in our data
+    const [language, setLanguage] = useLocalState('language', 'en');
+
+    const langData = data[language] || data.en;
+    const amount = langData.length - 1;
+
     const [item, setItem] = useState(randomInRange(0, amount));
     const [count, setCount] = useLocalState('counter', 0);
     const [celebrating, setCelebrating] = useState(false);
@@ -62,21 +74,42 @@ const IndexPage = () => {
             action: 'pageview',
             label: 'initial view',
         });
-    }, []);
+
+        const local = localStorage.getItem('language');
+        setLanguage(
+            local
+                ? JSON.parse(local)
+                : navigator?.languages.find((l) => data[l]) || 'en'
+        );
+    }, [language, setLanguage]);
+
+    // When we switch languages, get a new item for that language
+    useEffect(() => {
+        setItem(randomInRange(0, data[language].length - 1));
+    }, [language]);
+
+    if (!langData[item]) return null;
+
+    const { description, title } = translate('seo', language);
 
     return (
         <>
-            <StaticItems></StaticItems>
+            <StaticItems language={language}></StaticItems>
+            <LanguageSwitch
+                language={language}
+                setLanguage={setLanguage}
+                availableLanguages={Object.keys(data)}
+            ></LanguageSwitch>
             <Counter count={count}></Counter>
             <Guess
-                {...data[item]}
+                {...langData[item]}
                 celebrating={celebrating}
                 validate={validate}
             />
-            <ActionItems resolve={resolve} next={next} />
+            <ActionItems language={language} resolve={resolve} next={next} />
             <SEO
-                description="Adivina películas, libros y más, solo con 🌵💻👽"
-                title="¿podrás adivinar? 🌵💻👽"
+                description={`${description} 🌵💻👽`}
+                title={`${title} 🌵💻👽`}
             ></SEO>
         </>
     );

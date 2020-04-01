@@ -1,7 +1,10 @@
-import React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-const StaticItems = () => (
+import translate from '../utils/i18n';
+
+const StaticItems = ({ language }) => (
     <nav className="static-items">
         <div className="static-items__item main-logo">
             <Link to="/">
@@ -10,9 +13,6 @@ const StaticItems = () => (
                 </h1>
             </Link>
         </div>
-        <span className="static-items__item description">
-            Adivina películas, libros y más, solo con 🌵💻👽
-        </span>
         <a
             href="https://www.linkedin.com/in/nikodermus/"
             target="_blank"
@@ -32,10 +32,16 @@ const StaticItems = () => (
         >
             <figure className="bubble">
                 <span className="bubble__emoji">🗣</span>
-                <figcaption className="bubble__text">Contribuir</figcaption>
+                <figcaption className="bubble__text">
+                    {translate('static.contribute', language)}
+                </figcaption>
             </figure>
         </a>
     </nav>
 );
+
+StaticItems.propTypes = {
+    language: PropTypes.string.isRequired,
+};
 
 export default StaticItems;

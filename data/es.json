@@ -1,10 +1,5 @@
 [
     {
-        "answer": "10 Cloverfield Lane",
-        "emoji": "🚪🛢️🕳️🛸",
-        "clue": "Película"
-    },
-    {
         "answer": "2001 Una odisea en el espacio",
         "emoji": "🐵🌖👨‍🚀🤖👴",
         "clue": "Película"
@@ -73,6 +68,11 @@
         "answer": "Aunque el mono se vista de seda mono se queda",
         "emoji": "🐵👗👉👉🐵‍‍",
         "clue": "Refrán"
+    },
+    {
+        "answer": "Avenida Cloverfield 10",
+        "emoji": "🚪🛢️🕳️🛸",
+        "clue": "Película"
     },
     {
         "answer": "Baby Driver",

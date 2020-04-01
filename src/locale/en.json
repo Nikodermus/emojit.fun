@@ -1,0 +1,13 @@
+{
+    "seo": {
+        "description": "Guess movies, books and more, only with",
+        "title": "Can you guess?"
+    },
+    "buttons": {
+        "next": "Next",
+        "solve": "Solve"
+    },
+    "static": {
+        "contribute": "Contribute"
+    }
+}
