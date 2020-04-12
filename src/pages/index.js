@@ -79,9 +79,10 @@ const IndexPage = () => {
         setLanguage(
             local
                 ? JSON.parse(local)
-                : navigator?.languages.find((l) => data[l]) || 'en'
+                : navigator?.languages.find((l) => data[l.split('-')[0]]) ||
+                      'en'
         );
-    }, [language, setLanguage]);
+    }, [setLanguage]);
 
     // When we switch languages, get a new item for that language
     useEffect(() => {
@@ -94,23 +95,28 @@ const IndexPage = () => {
 
     return (
         <>
-            <StaticItems language={language}></StaticItems>
+            <StaticItems language={language} />
             <LanguageSwitch
                 language={language}
                 setLanguage={setLanguage}
                 availableLanguages={Object.keys(data)}
-            ></LanguageSwitch>
-            <Counter count={count}></Counter>
+            />
+            <Counter count={count} />
             <Guess
                 {...langData[item]}
                 celebrating={celebrating}
                 validate={validate}
             />
-            <ActionItems language={language} resolve={resolve} next={next} />
+            <ActionItems
+                celebrating={celebrating}
+                language={language}
+                resolve={resolve}
+                next={next}
+            />
             <SEO
                 description={`${description} 🌵💻👽`}
                 title={`${title} 🌵💻👽`}
-            ></SEO>
+            />
         </>
     );
 };

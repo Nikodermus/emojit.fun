@@ -17,6 +17,12 @@ html
     overflow: hidden
     scroll-behavior: smooth
 
+    +below("sm", orientation: landscape)
+        min-height: "max(100vh, %s)" % rem(400)
+
+    +below("sm", orientation: portrait)
+        min-height: "max(100vh, %s)" % rem(300)
+
     #___gatsby
     #gatsby-focus-wrapper
     body
@@ -46,3 +52,7 @@ html
 
         &.failure
             background: color-brand-red
+
+@media (prefers-color-scheme: dark)
+    body:not(.success):not(.failure)
+        background: color-brand-black

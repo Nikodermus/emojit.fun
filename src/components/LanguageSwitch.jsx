@@ -10,7 +10,9 @@ const LanguageSwitch = ({ language, setLanguage, availableLanguages }) => (
         onChange={({ target }) => setLanguage(target.value)}
     >
         {availableLanguages.map((l) => (
-            <option value={l}>{l.toUpperCase()}</option>
+            <option value={l} key={l}>
+                {l.toUpperCase()}
+            </option>
         ))}
     </select>
 );
