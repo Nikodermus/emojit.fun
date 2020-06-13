@@ -12,8 +12,12 @@
     transform: translateX(-50%)
     width: @height
 
+    +prefer-dark()
+        background: color-white-transparent
+        color: color-white
+
     +below("sm")
         left: unset
-        margin-right: sizing-3XL
+        margin-right: sizing-4XL
         right: sizing-2XL
         transform: translateX(-100%)

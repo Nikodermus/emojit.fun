@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const SEO = ({ description, lang, meta, title }) => {
@@ -67,7 +67,8 @@ const SEO = ({ description, lang, meta, title }) => {
                     name: `twitter:description`,
                     content: metaDescription,
                 },
-            ].concat(meta)}
+                ...meta,
+            ]}
         />
     );
 };

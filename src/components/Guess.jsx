@@ -4,13 +4,20 @@ import LetterInput from './LetterInput';
 
 const Guess = ({ clue, answer, emoji, validate, celebrating }) => (
     <main className="guess">
-        <h2 className="guess__emoji">{emoji}</h2>
+        <h2
+            className="guess__emoji"
+            style={{ '--length': Math.ceil(emoji.length / 2) }}
+        >
+            {emoji}
+        </h2>
         <div className="guess__input">
             {celebrating ? (
-                answer.split(' ').map((word) => (
-                    <h3 className="letter-break">
-                        {word.split('').map((l) => (
-                            <span className="letter-input">{l}</span>
+                answer.split(' ').map((word, wordId) => (
+                    <h3 className="letter-break" key={wordId}>
+                        {word.split('').map((l, lId) => (
+                            <span className="letter-input" key={lId}>
+                                {l}
+                            </span>
                         ))}
                     </h3>
                 ))

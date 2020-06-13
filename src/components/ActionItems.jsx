@@ -2,11 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import translate from '../utils/i18n';
 
-const ActionItems = ({ resolve, next, language }) => {
+const ActionItems = ({ resolve, next, language, celebrating }) => {
     const { next: nextText, solve } = translate('buttons', language);
 
     return (
-        <div className="action-items">
+        <div
+            className={`action-items ${
+                celebrating ? 'action-items--disabled' : ''
+            }`}
+        >
             <button
                 type="button"
                 onClick={resolve}
@@ -31,6 +35,7 @@ ActionItems.propTypes = {
     next: PropTypes.func.isRequired,
     resolve: PropTypes.func.isRequired,
     language: PropTypes.string.isRequired,
+    celebrating: PropTypes.bool.isRequired,
 };
 
 export default ActionItems;

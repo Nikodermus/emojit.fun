@@ -70,3 +70,8 @@ color-hover(bg)
             background: lighten(bg, 25%)
         else
             background: darken(bg, 25%)
+
+prefer-dark()
+    @media (prefers-color-scheme: dark)
+        body:not(.failure):not(.success) &
+            {block}

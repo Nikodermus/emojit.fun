@@ -3,7 +3,7 @@
 
     &__emoji
         text-align: center
-        font-size: font-size-6XL
+        font-size: "min(%s, calc((95vw / var(--length))))" % font-size-6XL
 
     &__description
         font-weight: font-weight-bld

@@ -64,10 +64,11 @@ const LetterInput = ({ secret, validate }) => {
         }
     }, [parsedSecret, validate, value]);
 
-    return parsedSecret.split(' ').map((word) => (
-        <div className="letter-break">
-            {word.split('').map(() => (
+    return parsedSecret.split(' ').map((word, wordID) => (
+        <div className="letter-break" key={wordID}>
+            {word.split('').map((l, lId) => (
                 <input
+                    key={lId}
                     ref={(ref) => {
                         if (ref && inputs.current.indexOf(ref) === -1) {
                             inputs.current.push(ref);
